@@ -11,4 +11,10 @@ class UserController extends Controller
 	{
 		$this->model = User::class;
 	}
+
+	public function me()
+	{
+		$user = request()->user();
+		return $this->item($user);
+	}
 }
