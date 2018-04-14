@@ -6,6 +6,7 @@ $api->version('v1', ['namespace' => 'App\Http\Controllers\Api\V1'], function($ap
 	$api->post('token', 'TokenController@store');
 
 	$api->group(['middleware' => 'auth:api'], function($api) {
+		$api->get('users/me', 'UserController@me');
 		$api->resource('users', 'UserController', ['only' => ['index']]);
 	});
 });
